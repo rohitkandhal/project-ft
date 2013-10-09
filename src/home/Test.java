@@ -6,7 +6,7 @@ public class Test {
 		System.out.println("Hello World");
 		
 		BitManipulation bitman = new BitManipulation();
-		bitman.updatedBits(1024, 21, 2, 6);
+		bitman.updateBits(1024, 21, 2, 6);
 	}
 
 }

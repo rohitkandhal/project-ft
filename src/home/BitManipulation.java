@@ -14,7 +14,7 @@ public class BitManipulation {
 	 *     located at i - count from the right side
 	 *     starting at j - count from the left side
 	 */
-	public void updatedBits(int n, int m, int i, int j){
+	public void updateBits(int n, int m, int i, int j){
 		
 		int max = ~0;		// All 1
 		
@@ -29,7 +29,6 @@ public class BitManipulation {
 		System.out.println("N: " + Integer.toBinaryString(n));
 		System.out.println("M: " + Integer.toBinaryString(m));
 		System.out.println("Out: " + Integer.toBinaryString(finalnum));
-		
 	}
 
 }
