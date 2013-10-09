@@ -1,4 +1,4 @@
-project-ft
+Project Full Time
 ==========
 
-Various dummy learning projects
+A project having various small projects created for learning
