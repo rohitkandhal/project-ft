@@ -72,9 +72,85 @@ public class BitManipulation {
 				dec_part = temp;
 			}
 		}
-		
-		System.out.println(int_str + "."+ dec_str);
-		
-		return int_str + "."+ dec_str;
+
+		System.out.println(int_str + "." + dec_str);
+
+		return int_str + "." + dec_str;
+	}
+
+	/*/
+	 * Input Output
+	 *   25    22
+	 *   35    28
+	 *   Returns next smallest number with same number of 1 bits
+	 */
+	public int nextSmallestNumber(int n) {
+
+		System.out.println("Input: " + Integer.toBinaryString(n) + " (" + n
+				+ ")");
+
+		if (n <= 0)
+			return -1;
+
+		int index = 0;
+		int countOnes = 0;
+
+		// First first zero
+		while (GetBit(n, index)) {
+			index++;
+			countOnes++;
+		}
+
+		// Find next one
+		while (!GetBit(n, index)) {
+			index++;
+		}
+
+		// Turn this one to zero
+		n = setBit(n, index, false);
+
+		// Turn last 0 to one
+		index--;
+		n = setBit(n, index, true);
+
+		index--;
+		// move all ones here
+		while (countOnes > 0) {
+			n = setBit(n, index, true);
+			index--;
+			countOnes--;
+		}
+
+		// set all remaining bits to 0
+		while (index >= 0) {
+			n = setBit(n, index, false);
+			index--;
+		}
+
+		System.out.println("Output :" + Integer.toBinaryString(n) + " (" + n
+				+ ")");
+		return n;
+
+	}
+
+	public boolean GetBit(int n, int index) {
+		return ((n & (1 << index)) > 0);
+	}
+
+	/*
+	 * / Sets bit at index <i> to either 1 or 0 depending on Boolean b in
+	 * integer n
+	 */
+	public int setBit(int n, int index, boolean b) {
+
+		if (b) {
+			// Set bit at index to 1
+			return n | (1 << index);
+		} else {
+			// Set bit at index to 0
+			int mask = ~(1 << index);
+			return n & mask;
+		}
+
 	}
 }

@@ -8,6 +8,7 @@ public class Test {
 		BitManipulation bitman = new BitManipulation();
 		// bitman.updateBits(1024, 21, 2, 6);
 		// bitman.doubleToBinary("32768.0");
+		bitman.nextSmallestNumber(35);
 	}
 
 }
