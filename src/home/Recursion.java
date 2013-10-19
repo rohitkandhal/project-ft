@@ -21,7 +21,7 @@ public class Recursion {
 		} else {
 			resultSet = GetSubsetCollection(inputSet, currentIndex - 1);
 
-			int currInt = inputSet.get(currentIndex-1);
+			int currInt = inputSet.get(currentIndex - 1);
 
 			ArrayList<ArrayList<Integer>> newSubsets = new ArrayList<ArrayList<Integer>>();
 
@@ -33,7 +33,6 @@ public class Recursion {
 
 				newSubsets.add(newElements);
 			}
-			
 			resultSet.addAll(newSubsets);
 		}
 		return resultSet;
@@ -47,6 +46,5 @@ public class Recursion {
 				System.out.print(currChar + ", ");
 			}
 		}
-
 	}
 }
