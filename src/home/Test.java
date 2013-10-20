@@ -48,7 +48,8 @@ public class Test {
 		// bitman.updateBits(1024, 21, 2, 6);
 		// bitman.doubleToBinary("32768.0");
 		// bitman.nextSmallestNumber(35);
-		bitman.getEstimate("YRGB", "RGGB");
+		 bitman.getEstimate("YRGB", "RGGB");
+		 bitman.getSimilarityCount("Rohit", "MOHIT");
 		
 		// Recursion Problems
 		/*

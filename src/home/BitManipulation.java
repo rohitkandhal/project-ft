@@ -160,13 +160,10 @@ public class BitManipulation {
 		int pseudoHits;
 	}
 
-	/*/
-	 * Input:
-	 *   Solution: "RGGB",
-	 *   Guess:    "YRGB"
-	 *   
-	 * Output:
-	 *   Hits: 2 (GB), Pseudo Hits: 1 (R)
+	/*
+	 * / Input: Solution: "RGGB", Guess: "YRGB"
+	 * 
+	 * Output: Hits: 2 (GB), Pseudo Hits: 1 (R)
 	 */
 	public void getEstimate(String guess, String solution) {
 		Result result = new Result();
@@ -187,5 +184,27 @@ public class BitManipulation {
 
 		System.out.println("Hits: " + result.hits + " \nPseudo Hits: "
 				+ result.pseudoHits);
+	}
+
+	public void getSimilarityCount(String original, String newValue) {
+		Result result = new Result();
+
+		int solution_mask = 0;
+
+		for (int i = 0; i < original.length(); i++) {
+			solution_mask |= 1 << (original.charAt(i));
+		}
+		
+		for (int i =0; i < newValue.length(); i++)
+		{
+			//System.out.println((int)original.charAt(i));
+			if((solution_mask & (1 << (int)newValue.charAt(i))) >= 1)
+			{
+				result.pseudoHits++;
+			}
+		}
+		
+		System.out.println("Number of common characters in two strings: " + result.pseudoHits);
+
 	}
 }
