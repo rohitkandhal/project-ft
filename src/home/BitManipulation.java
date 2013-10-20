@@ -1,5 +1,8 @@
 package home;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class BitManipulation {
 
 	/*
@@ -78,11 +81,9 @@ public class BitManipulation {
 		return int_str + "." + dec_str;
 	}
 
-	/*/
-	 * Input Output
-	 *   25    22
-	 *   35    28
-	 *   Returns next smallest number with same number of 1 bits
+	/*
+	 * / Input Output 25 22 35 28 Returns next smallest number with same number
+	 * of 1 bits
 	 */
 	public int nextSmallestNumber(int n) {
 
@@ -152,5 +153,39 @@ public class BitManipulation {
 			return n & mask;
 		}
 
+	}
+
+	public class Result {
+		int hits;
+		int pseudoHits;
+	}
+
+	/*/
+	 * Input:
+	 *   Solution: "RGGB",
+	 *   Guess:    "YRGB"
+	 *   
+	 * Output:
+	 *   Hits: 2 (GB), Pseudo Hits: 1 (R)
+	 */
+	public void getEstimate(String guess, String solution) {
+		Result result = new Result();
+
+		int solution_mask = 0;
+
+		for (int i = 0; i < 4; ++i) {
+			solution_mask |= 1 << (1 + solution.charAt(i) - 'A');
+		}
+
+		for (int i = 0; i < 4; i++) {
+			if (guess.charAt(i) == solution.charAt(i)) {
+				result.hits++;
+			} else if ((solution_mask & (1 << (1 + guess.charAt(i) - 'A'))) >= 1) {
+				result.pseudoHits++;
+			}
+		}
+
+		System.out.println("Hits: " + result.hits + " \nPseudo Hits: "
+				+ result.pseudoHits);
 	}
 }

@@ -44,12 +44,14 @@ public class Test {
 	{
 		//System.out.println("Hello World");
 		
-		// BitManipulation bitman = new BitManipulation();
+		 BitManipulation bitman = new BitManipulation();
 		// bitman.updateBits(1024, 21, 2, 6);
 		// bitman.doubleToBinary("32768.0");
 		// bitman.nextSmallestNumber(35);
+		bitman.getEstimate("YRGB", "RGGB");
 		
 		// Recursion Problems
+		/*
 		Recursion recursion = new Recursion();
 		ArrayList<Integer> inputSet = new ArrayList<Integer>();
 		inputSet.add(1);
@@ -58,7 +60,7 @@ public class Test {
 		ArrayList<ArrayList<Integer>> outputSet;
 		outputSet = recursion.GetSubsetCollection(inputSet);
 		recursion.printSubsetCollection(outputSet);
-		
+		*/
 	}
 
 }
