@@ -48,20 +48,21 @@ public class Test {
 		// bitman.updateBits(1024, 21, 2, 6);
 		// bitman.doubleToBinary("32768.0");
 		// bitman.nextSmallestNumber(35);
-		 bitman.getEstimate("YRGB", "RGGB");
-		 bitman.getSimilarityCount("Rohit", "MOHIT");
+		// bitman.getEstimate("YRGB", "RGGB");
+		// bitman.getSimilarityCount("Rohit", "MOHIT");
 		
 		// Recursion Problems
-		/*
+		
 		Recursion recursion = new Recursion();
-		ArrayList<Integer> inputSet = new ArrayList<Integer>();
-		inputSet.add(1);
-		inputSet.add(2);
-		inputSet.add(3);
-		ArrayList<ArrayList<Integer>> outputSet;
-		outputSet = recursion.GetSubsetCollection(inputSet);
-		recursion.printSubsetCollection(outputSet);
-		*/
+//		ArrayList<Integer> inputSet = new ArrayList<Integer>();
+//		inputSet.add(1);
+//		inputSet.add(2);
+//		inputSet.add(3);
+//		ArrayList<ArrayList<Integer>> outputSet;
+//		outputSet = recursion.GetSubsetCollection(inputSet);
+//		recursion.printSubsetCollection(outputSet);
+
+		recursion.printInvertedTriangle();
 	}
 
 }
