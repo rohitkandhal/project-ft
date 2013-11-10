@@ -57,7 +57,7 @@ public class Test {
 
 		// Recursion Problems
 
-		// Recursion recursion = new Recursion();
+		 Recursion recursion = new Recursion();
 		// ArrayList<Integer> inputSet = new ArrayList<Integer>();
 		// inputSet.add(1);
 		// inputSet.add(2);
@@ -67,9 +67,15 @@ public class Test {
 		// recursion.printSubsetCollection(outputSet);
 
 		// recursion.printInvertedTriangle();
-
-		Test t1 = new Test();
-		t1.regexTest();
+		 
+		 recursion.getFibWithMem(20);
+		 recursion.printFibonacci();
+		 
+		//Test t1 = new Test();
+		//t1.regexTest();
+		
+		
+		
 	}
 
 	public void testHarness() throws IOException {

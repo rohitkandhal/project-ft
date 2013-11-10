@@ -52,17 +52,38 @@ public class Recursion {
 		for (int i = 0; i < 3; i++) {
 
 			System.out.println();
-			for(int j = 0; j < 3; j++)
-			{
-				if(j < i)
-				{
+			for (int j = 0; j < 3; j++) {
+				if (j < i) {
 					System.out.print("-");
-				}
-				else
-				{
+				} else {
 					System.out.print("*");
 				}
 			}
+		}
+	}
+
+	int[] dictionary;
+
+	public int getFibWithMem(int n) {
+		if (dictionary == null) {
+			dictionary = new int[n];
+		}
+		
+		if (dictionary[n - 1] == 0) {
+			if (n <= 2) {
+				dictionary[n - 1] = n - 1;
+			} else {
+				dictionary[n - 1] = getFibWithMem(n - 1) + getFibWithMem(n - 2);
+			}
+		}
+
+		return dictionary[n - 1];
+	}
+
+	public void printFibonacci() {
+		int i = 0;
+		for (int curr : dictionary) {
+			System.out.print("F[" + i++ + "]:" + curr + ", ");
 		}
 	}
 }
