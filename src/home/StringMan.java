@@ -29,10 +29,12 @@ public class StringMan {
 		char[] inpChars = inpStr.toCharArray();
 		int lindex = 0;
 		int rindex = 0;
+		// Note: Loop runs 1 extra time. It's rindex <= length not <
 		for(rindex = 0; rindex <= inpStr.length(); rindex++)
 		{
 			// 1. Suppose we have only one word string "ABC" -> "CBA"
 			// 2. Detect space "Hello World"
+			// Imp: Both checks should be in this order only
 			if(rindex == inpStr.length() || inpChars[rindex] == ' ')
 			{
 				inpChars = reverseString(inpChars, lindex, rindex-1);
