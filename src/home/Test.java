@@ -57,7 +57,7 @@ public class Test {
 
 		// Recursion Problems
 
-		 Recursion recursion = new Recursion();
+		 // Recursion recursion = new Recursion();
 		// ArrayList<Integer> inputSet = new ArrayList<Integer>();
 		// inputSet.add(1);
 		// inputSet.add(2);
@@ -68,13 +68,17 @@ public class Test {
 
 		// recursion.printInvertedTriangle();
 		 
-		 recursion.getFibWithMem(20);
-		 recursion.printFibonacci();
+		 // recursion.getFibWithMem(20);
+		 // recursion.printFibonacci();
 		 
 		//Test t1 = new Test();
 		//t1.regexTest();
 		
-		
+		 StringMan stringMan = new StringMan();
+		 String testString = "Hello World";
+		 System.out.println(testString);
+		 System.out.println(stringMan.reverseString(testString.toCharArray(), 0, (testString.length() - 1)));
+		 System.out.println(stringMan.reverseWords(testString));
 		
 	}
 
