@@ -74,12 +74,17 @@ public class Test {
 		//Test t1 = new Test();
 		//t1.regexTest();
 		
-		 StringMan stringMan = new StringMan();
+		  StringMan stringMan = new StringMan();
 		 // String testString = "Hello World";
 		 // System.out.println(testString);
 		 // System.out.println(stringMan.reverseString(testString.toCharArray(), 0, (testString.length() - 1)));
 		 // System.out.println(stringMan.reverseWords(testString));
-		 System.out.println(stringMan.isPalindrome("RotoR"));
+		 // System.out.println(stringMan.isPalindrome("RotoR"));
+		 stringMan.testStringPermutations();
+		  
+		 // LinkedListMan linkedListMan = new LinkedListMan();
+		 // linkedListMan.testMergeTwoLists();
+		 
 		 
 	}
 

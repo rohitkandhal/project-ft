@@ -1,5 +1,6 @@
 package home;
 
+
 public class StringMan {
 
 	/*
@@ -52,5 +53,37 @@ public class StringMan {
 			}
 		}
 		return true;
+	}
+	
+	
+	
+	public void permutations(String inp){
+		permutationsInternal("", inp);
+	}
+	
+	public void permutationsInternal(String prefix, String inpStr)
+	{
+		if(inpStr.length() == 0)
+		{
+			// The base case: input is an empty string the only permutation is the empty string + Prefix
+			System.out.print(prefix + ", ");
+		}
+		else
+		{
+			// Try each of the letters in turn as the first letter and
+			// then find all the permutations of the remaining letters using a recursive call.
+			for(int i = 0; i < inpStr.length(); i++ )
+			{
+				permutationsInternal(prefix + inpStr.charAt(i), 
+						inpStr.substring(0,i) + inpStr.substring(i+1, inpStr.length()));
+			}
+		}
+	}
+	
+	public void testStringPermutations()
+	{
+		String testString = "rohit";
+		System.out.println(testString);
+		permutations(testString);
 	}
 }
