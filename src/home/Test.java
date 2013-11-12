@@ -75,11 +75,12 @@ public class Test {
 		//t1.regexTest();
 		
 		 StringMan stringMan = new StringMan();
-		 String testString = "Hello World";
-		 System.out.println(testString);
-		 System.out.println(stringMan.reverseString(testString.toCharArray(), 0, (testString.length() - 1)));
-		 System.out.println(stringMan.reverseWords(testString));
-		
+		 // String testString = "Hello World";
+		 // System.out.println(testString);
+		 // System.out.println(stringMan.reverseString(testString.toCharArray(), 0, (testString.length() - 1)));
+		 // System.out.println(stringMan.reverseWords(testString));
+		 System.out.println(stringMan.isPalindrome("RotoR"));
+		 
 	}
 
 	public void testHarness() throws IOException {
