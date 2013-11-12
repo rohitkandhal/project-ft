@@ -20,6 +20,7 @@ A project having various small projects created for learning. List of all progra
 1. Reverse a String: "Hello World" -> "dlroW olleH"
 2. Reverse words in a String: "Hello World" -> "olleH dlroW"
 3. Palindrome string checker
+4. Generate string permutations.
 
 ### Linked List Functions
 1. Merge two sorted linked lists into one.
