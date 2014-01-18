@@ -12,9 +12,8 @@ public class LinkedListMan {
 		public ListNode(int x) {
 			this(x, null);
 		}
-		
-		public ListNode(int x, ListNode next)
-		{
+
+		public ListNode(int x, ListNode next) {
 			data = x;
 			this.next = next;
 		}
@@ -45,32 +44,83 @@ public class LinkedListMan {
 		} else if (p2 != null) {
 			curr.next = p2;
 		}
-		
+
 		return head.next;
 	}
-	
-	public void testMergeTwoLists()
-	{
-		ListNode l1 = new ListNode(1, 
-				new ListNode(3, 
-						new ListNode(5, 
-								new ListNode(7, 
-										new ListNode(9)))));
-		ListNode l2 = new ListNode(2, 
-				new ListNode(4, 
-						new ListNode(6, 
-								new ListNode(8, 
-										new ListNode(10)))));
-		
+
+	public void testMergeTwoLists() {
+		ListNode l1 = new ListNode(1, new ListNode(3, new ListNode(5,
+				new ListNode(7, new ListNode(9)))));
+		ListNode l2 = new ListNode(2, new ListNode(4, new ListNode(6,
+				new ListNode(8, new ListNode(10)))));
+
 		ListNode mergedList = this.mergeTwoLists(l1, l2);
-		
+
 		ListNode temp = mergedList;
-		
-		while(temp!= null)
-		{
-			
-			System.out.print(temp.data +", ");
+
+		while (temp != null) {
+
+			System.out.print(temp.data + ", ");
 			temp = temp.next;
 		}
+	}
+
+	/*
+	 * Determines a loop or cycle in a linked list.
+	 */
+	public boolean determineLoopInList(ListNode head) {
+		boolean hasLoop = false;
+		if (head != null) {
+			ListNode slow = head;
+			ListNode fast = head.next;
+
+			while (fast != null && fast.next != null) {
+				if (fast == slow || fast.next == slow) {
+					hasLoop = true;
+				} else {
+					fast = fast.next.next;
+					slow = slow.next;
+				}
+			}
+		}
+		return hasLoop;
+	}
+
+	public ListNode reverseList(ListNode head) {
+		if (head == null) {
+			return null;
+		}
+		if (head.next == null) {
+			return head;
+		}
+
+		ListNode secondElement = head.next;
+		head.next = null;
+
+		// Need to back up the reverse list's head. No change on rhead.
+		ListNode rhead = reverseList(secondElement);
+
+		secondElement.next = head;
+
+		return rhead;
+	}
+
+	/*
+	 * Prints a linked list. Need head of the list
+	 */
+	public void printLinkedList(ListNode head) {
+		System.out.println();
+		while (head != null) {
+			System.out.print("->" + head.data);
+			head = head.next;
+		}
+	}
+
+	public void testLinkedList() {
+		ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3)));
+
+		this.printLinkedList(l1);
+		ListNode l2 = reverseList(l1);
+		this.printLinkedList(l2);
 	}
 }

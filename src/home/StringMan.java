@@ -1,6 +1,5 @@
 package home;
 
-
 public class StringMan {
 
 	/*
@@ -38,14 +37,12 @@ public class StringMan {
 		return inpChars;
 	}
 
-	/*/
-	 * Checks a palindrome string
-	 * Input: "LeveL"
-	 * Output: True
+	/*
+	 * / Checks a palindrome string Input: "LeveL" Output: True
 	 */
 	public boolean isPalindrome(String inp) {
 		char[] inpChars = inp.toCharArray();
-		int start = 0, end = inp.length()-1;
+		int start = 0, end = inp.length() - 1;
 
 		while (start < end) {
 			if (inpChars[start++] != inpChars[end--]) {
@@ -54,34 +51,52 @@ public class StringMan {
 		}
 		return true;
 	}
-	
-	
-	
-	public void permutations(String inp){
+
+	public boolean isPalindrome(Integer a) {
+		// 12321
+		int rev = 0;
+		int inp = a;
+		int rem = 0;
+		int length = String.valueOf(a).length();
+
+		length--;
+
+		while (inp > 0) {
+			rem = inp % 10;
+			rev += rem * Math.pow(10, length);
+			length--;
+			inp = inp / 10;
+		}
+
+		if (inp == rev) {
+			return true;
+		}
+		return false;
+	}
+
+	public void permutations(String inp) {
 		permutationsInternal("", inp);
 	}
-	
-	public void permutationsInternal(String prefix, String inpStr)
-	{
-		if(inpStr.length() == 0)
-		{
-			// The base case: input is an empty string the only permutation is the empty string + Prefix
+
+	public void permutationsInternal(String prefix, String inpStr) {
+		if (inpStr.length() == 0) {
+			// The base case: input is an empty string the only permutation is
+			// the empty string + Prefix
 			System.out.print(prefix + ", ");
-		}
-		else
-		{
+		} else {
 			// Try each of the letters in turn as the first letter and
-			// then find all the permutations of the remaining letters using a recursive call.
-			for(int i = 0; i < inpStr.length(); i++ )
-			{
-				permutationsInternal(prefix + inpStr.charAt(i), 
-						inpStr.substring(0,i) + inpStr.substring(i+1, inpStr.length()));
+			// then find all the permutations of the remaining letters using a
+			// recursive call.
+			for (int i = 0; i < inpStr.length(); i++) {
+				permutationsInternal(
+						prefix + inpStr.charAt(i),
+						inpStr.substring(0, i)
+								+ inpStr.substring(i + 1, inpStr.length()));
 			}
 		}
 	}
-	
-	public void testStringPermutations()
-	{
+
+	public void testStringPermutations() {
 		String testString = "rohit";
 		System.out.println(testString);
 		permutations(testString);
