@@ -96,9 +96,41 @@ public class StringMan {
 		}
 	}
 
+	/*
+	 * Finds a unique number between an array from 1 to n with one number missing
+	 * Handles Integer overflow
+	 * Logic: first xor from start to max then xor the final result with each number in 
+	 * array. XOR of an element with itself is 0 i.e. x ^ x = 0
+	 */
+	public void findUniqueIntInArray(int[] inp,int max) {
+		int xor = 0;
+		for(int i=1; i<= max;i++)
+		{
+			xor ^= i;
+		}
+		
+		for(int i : inp)
+		{
+			xor ^= i;
+		}
+		
+		System.out.println(xor);
+	}
+	
+	public void testFindUnique()
+	{
+		// Input: 5,4,3,2
+		// Output: 1
+		int[] arr = {5,4,3,2};
+		int maxNumberInArray = 5;
+		this.findUniqueIntInArray(arr, maxNumberInArray);
+		
+	}
+
 	public void testStringPermutations() {
 		String testString = "rohit";
 		System.out.println(testString);
 		permutations(testString);
 	}
+	
 }
