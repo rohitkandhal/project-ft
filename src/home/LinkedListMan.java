@@ -104,6 +104,26 @@ public class LinkedListMan {
 
 		return rhead;
 	}
+	
+	public ListNode reverseListIteratively(ListNode head){
+		if(head== null)
+		{
+			return null;
+		}
+		
+		ListNode prev = null;
+		ListNode curr = head;
+		
+		while(curr != null){
+			ListNode temp = curr.next;
+			
+			curr.next = prev;
+			prev = curr;
+			curr = temp;
+		}
+		
+		return prev;
+	}
 
 	/*
 	 * Prints a linked list. Need head of the list
@@ -120,7 +140,7 @@ public class LinkedListMan {
 		ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3)));
 
 		this.printLinkedList(l1);
-		ListNode l2 = reverseList(l1);
+		ListNode l2 = reverseListIteratively(l1);
 		this.printLinkedList(l2);
 	}
 }

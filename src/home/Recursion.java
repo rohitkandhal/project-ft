@@ -38,7 +38,7 @@ public class Recursion {
 		return resultSet;
 
 	}
-
+	
 	public void printSubsetCollection(ArrayList<ArrayList<Integer>> subsets) {
 		for (ArrayList<Integer> subsetElements : subsets) {
 			System.out.println();
@@ -47,6 +47,8 @@ public class Recursion {
 			}
 		}
 	}
+	
+	
 
 	public void printInvertedTriangle() {
 		for (int i = 0; i < 3; i++) {

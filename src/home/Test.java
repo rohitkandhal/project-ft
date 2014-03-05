@@ -57,7 +57,7 @@ public class Test {
 
 		// Recursion Problems
 
-		 // Recursion recursion = new Recursion();
+		// Recursion recursion = new Recursion();
 		// ArrayList<Integer> inputSet = new ArrayList<Integer>();
 		// inputSet.add(1);
 		// inputSet.add(2);
@@ -67,31 +67,35 @@ public class Test {
 		// recursion.printSubsetCollection(outputSet);
 
 		// recursion.printInvertedTriangle();
-		 
-		 // recursion.getFibWithMem(20);
-		 // recursion.printFibonacci();
-		 
-		//Test t1 = new Test();
-		//t1.regexTest();
-		
-		 // StringMan stringMan = new StringMan();
-		 // String testString = "Hello World";
-		 // System.out.println(testString);
-		 // System.out.println(stringMan.reverseString(testString.toCharArray(), 0, (testString.length() - 1)));
-		 // System.out.println(stringMan.reverseWords(testString));
-		 // System.out.println(stringMan.isPalindrome("RotoR"));
-		 //stringMan.testStringPermutations();
-		 // stringMan.testFindUnique();
-		  
-		 // LinkedListMan linkedListMan = new LinkedListMan();
-		 // linkedListMan.testMergeTwoLists();
-		 // linkedListMan.testLinkedList();
-		 
-		 // Inheritance1 inherit = new Inheritance1();
-		 // inherit.testInheritance1();
-		 
-		 Inheritance2 inherit2 = new Inheritance2();
-		 inherit2.testInheritance2();
+
+		// recursion.getFibWithMem(20);
+		// recursion.printFibonacci();
+
+		// Test t1 = new Test();
+		// t1.regexTest();
+
+		// StringMan stringMan = new StringMan();
+		// String testString = "Hello World";
+		// System.out.println(testString);
+		// System.out.println(stringMan.reverseString(testString.toCharArray(),
+		// 0, (testString.length() - 1)));
+		// System.out.println(stringMan.reverseWords(testString));
+		// System.out.println(stringMan.isPalindrome("RotoR"));
+		// stringMan.testStringPermutations();
+		// stringMan.testFindUnique();
+
+		 LinkedListMan linkedListMan = new LinkedListMan();
+		// linkedListMan.testMergeTwoLists();
+		 linkedListMan.testLinkedList();
+
+		// Inheritance1 inherit = new Inheritance1();
+		// inherit.testInheritance1();
+
+		// Inheritance2 inherit2 = new Inheritance2();
+		// inherit2.testInheritance2();
+
+		// TreeMan treeTest = new TreeMan();
+		// treeTest.testTree();
 	}
 
 	public void testHarness() throws IOException {
@@ -104,8 +108,8 @@ public class Test {
 	}
 
 	public void regexTest() {
-		
-		Pattern p = Pattern.compile("Foo"); 
+
+		Pattern p = Pattern.compile("Foo");
 		Matcher m = p.matcher("FooGooFooooHelloFootestingfoo");
 		while (m.find()) {
 			System.out.println(m.start() + ", " + m.end() + ", " + m.group());

@@ -96,6 +96,11 @@ public class StringMan {
 		}
 	}
 
+	public void testStringPermutations() {
+		String testString = "rohit";
+		System.out.println(testString);
+		permutations(testString);
+	}
 	/*
 	 * Finds a unique number between an array from 1 to n with one number missing
 	 * Handles Integer overflow
@@ -127,10 +132,6 @@ public class StringMan {
 		
 	}
 
-	public void testStringPermutations() {
-		String testString = "rohit";
-		System.out.println(testString);
-		permutations(testString);
-	}
+	
 	
 }
