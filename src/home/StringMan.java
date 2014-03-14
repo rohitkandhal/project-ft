@@ -52,28 +52,25 @@ public class StringMan {
 		return true;
 	}
 
-	public boolean isPalindrome(Integer a) {
+	public boolean isPalindrome(Integer inp) {
 		// 12321
-		int rev = 0;
-		int inp = a;
-		int rem = 0;
-		int length = String.valueOf(a).length();
-
-		length--;
+		int reverse = 0;
+		int original = inp;
 
 		while (inp > 0) {
-			rem = inp % 10;
-			rev += rem * Math.pow(10, length);
-			length--;
+			reverse = reverse * 10 + (inp%10);
 			inp = inp / 10;
 		}
 
-		if (inp == rev) {
+		if (original == reverse) {
 			return true;
 		}
 		return false;
 	}
 
+	/*
+	 * Permutation of a string - recursive
+	 */
 	public void permutations(String inp) {
 		permutationsInternal("", inp);
 	}
@@ -101,37 +98,33 @@ public class StringMan {
 		System.out.println(testString);
 		permutations(testString);
 	}
+
 	/*
-	 * Finds a unique number between an array from 1 to n with one number missing
-	 * Handles Integer overflow
-	 * Logic: first xor from start to max then xor the final result with each number in 
-	 * array. XOR of an element with itself is 0 i.e. x ^ x = 0
+	 * Finds a unique number between an array from 1 to n with one number
+	 * missing Handles Integer overflow Logic: first xor from start to max then
+	 * xor the final result with each number in array. XOR of an element with
+	 * itself is 0 i.e. x ^ x = 0
 	 */
-	public void findUniqueIntInArray(int[] inp,int max) {
+	public void findUniqueIntInArray(int[] inp, int max) {
 		int xor = 0;
-		for(int i=1; i<= max;i++)
-		{
+		for (int i = 1; i <= max; i++) {
 			xor ^= i;
 		}
-		
-		for(int i : inp)
-		{
+
+		for (int i : inp) {
 			xor ^= i;
 		}
-		
+
 		System.out.println(xor);
 	}
-	
-	public void testFindUnique()
-	{
+
+	public void testFindUnique() {
 		// Input: 5,4,3,2
 		// Output: 1
-		int[] arr = {5,4,3,2};
+		int[] arr = { 5, 4, 3, 2 };
 		int maxNumberInArray = 5;
 		this.findUniqueIntInArray(arr, maxNumberInArray);
-		
+
 	}
 
-	
-	
 }

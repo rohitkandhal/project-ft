@@ -25,7 +25,7 @@ public class Inheritance2 {
 		SubClass subObj = new SubClass();
 		SuperClass subSuperObj = new SubClass();
 
-		superObj.foo(superObj); 	// Super class foo
+		superObj.foo(null); 	// Super class foo
 		superObj.foo(subObj); 		// Super class foo
 		superObj.foo(subSuperObj);	// Super class foo
 

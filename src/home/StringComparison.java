@@ -129,4 +129,45 @@ public class StringComparison {
 
 		return String.valueOf(outputString);
 	}
+	
+	/*
+	 * Reverse words of a string
+	 */
+	public String reverseWords(String s) {
+        s = s.trim();
+        
+        String reversed = reverseString(s, 0, s.length()-1);
+        
+        int lindex = 0;
+        int rindex = 0;
+        for(rindex = 0; rindex <= reversed.length(); rindex++){
+            if(rindex == reversed.length() || reversed.charAt(rindex) == ' '){
+                reversed = reverseString(reversed, lindex, rindex-1);
+                lindex = rindex+1;
+            }
+        }
+        
+        reversed = reversed.replaceAll("( )+", " ");
+        return reversed;
+    }
+    
+    private String reverseString(String str, int s, int e){
+        
+        if(str.length() == 0){
+            return str;
+        }
+        
+        char[] inpArr = str.toCharArray();
+        int end = e;
+        int start = s;
+        char tmp;
+        while(start < end){
+            tmp = inpArr[start];
+            inpArr[start] = inpArr[end];
+            inpArr[end] = tmp;
+            end--;
+            start++;
+        }
+        return new String(inpArr);
+    }
 }

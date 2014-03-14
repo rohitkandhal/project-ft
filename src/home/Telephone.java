@@ -7,6 +7,7 @@ public class Telephone {
 	private final int[] phoneNum = {3,4,5,6,7,8,9};
 	private char[] result = new char[LENGTH];
 	
+	@SuppressWarnings("unused")
 	private void printWords(int curDigit) {
 
 		if(curDigit  == LENGTH)
