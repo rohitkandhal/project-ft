@@ -1,5 +1,7 @@
 package home;
 
+import org.junit.Test;
+
 public class LinkedListMan {
 
 	/*
@@ -48,23 +50,6 @@ public class LinkedListMan {
 		return head.next;
 	}
 
-	public void testMergeTwoLists() {
-		ListNode l1 = new ListNode(1, new ListNode(3, new ListNode(5,
-				new ListNode(7, new ListNode(9)))));
-		ListNode l2 = new ListNode(2, new ListNode(4, new ListNode(6,
-				new ListNode(8, new ListNode(10)))));
-
-		ListNode mergedList = this.mergeTwoLists(l1, l2);
-
-		ListNode temp = mergedList;
-
-		while (temp != null) {
-
-			System.out.print(temp.data + ", ");
-			temp = temp.next;
-		}
-	}
-
 	/*
 	 * Determines a loop or cycle in a linked list.
 	 */
@@ -104,29 +89,67 @@ public class LinkedListMan {
 
 		return rhead;
 	}
-	
-	public ListNode reverseListIteratively(ListNode head){
-		if(head== null)
-		{
+
+	public ListNode reverseListIteratively(ListNode head) {
+		if (head == null) {
 			return null;
 		}
-		
+
 		ListNode prev = null;
 		ListNode curr = head;
-		
-		while(curr != null){
+
+		while (curr != null) {
 			ListNode temp = curr.next;
-			
+
 			curr.next = prev;
 			prev = curr;
 			curr = temp;
 		}
-		
+
 		return prev;
 	}
 
 	/*
-	 * Prints a linked list. Need head of the list
+	 * Input: 1->2->3->4->5->Null Output: 2->1->4->3->5->Null
+	 */
+	public ListNode evenOddMerge(ListNode head) {
+
+		if (head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode first = head;
+		ListNode second = first.next;
+		ListNode third = null;
+
+		ListNode result = second;
+
+		// Logic: 1->2->3->4->5->6
+		// First - 1, Second - 2, Third 3
+		// Second.next = first
+		// First.next = Third.next
+		while (true) {
+			
+			third = second.next;
+
+			second.next = first;
+
+			if (third == null || third.next == null) {
+				first.next = third;
+				break;
+			}
+
+			first.next = third.next;
+
+			first = third;
+			second = first.next;
+		}
+
+		return result;
+	}
+
+	/*
+	 * Prints a linked list.
 	 */
 	public void printLinkedList(ListNode head) {
 		System.out.println();
@@ -142,5 +165,32 @@ public class LinkedListMan {
 		this.printLinkedList(l1);
 		ListNode l2 = reverseListIteratively(l1);
 		this.printLinkedList(l2);
+	}
+
+	public void testMergeTwoLists() {
+		ListNode l1 = new ListNode(1, new ListNode(3, new ListNode(5,
+				new ListNode(7, new ListNode(9)))));
+		ListNode l2 = new ListNode(2, new ListNode(4, new ListNode(6,
+				new ListNode(8, new ListNode(10)))));
+
+		ListNode mergedList = this.mergeTwoLists(l1, l2);
+
+		ListNode temp = mergedList;
+
+		while (temp != null) {
+
+			System.out.print(temp.data + ", ");
+			temp = temp.next;
+		}
+	}
+
+	@Test
+	public void testEvenOddMerge() {
+		ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3,
+				new ListNode(4, new ListNode(5)))));
+
+		l1 = evenOddMerge(l1);
+
+		printLinkedList(l1);
 	}
 }

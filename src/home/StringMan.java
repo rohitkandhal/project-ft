@@ -1,5 +1,8 @@
 package home;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 public class StringMan {
 
 	/*
@@ -93,11 +96,6 @@ public class StringMan {
 		}
 	}
 
-	public void testStringPermutations() {
-		String testString = "rohit";
-		System.out.println(testString);
-		permutations(testString);
-	}
 
 	/*
 	 * Finds a unique number between an array from 1 to n with one number
@@ -118,13 +116,55 @@ public class StringMan {
 		System.out.println(xor);
 	}
 
+	/*
+	 * Run Length Encoding
+	 * Input: aaaammaazzzzoonnn
+	 * Output: a4m2a2z4o2n3
+	 */
+	public String runLengthEncoding(String inp)
+	{
+		StringBuilder result = new StringBuilder();
+		
+		// Iteratively better
+		int len = inp.length();
+		int ccount = 0;
+		for(int i = 0; i < len; i++)
+		{
+			result.append(inp.charAt(i));
+			ccount = 1;
+			
+			while(i+1<len && (inp.charAt(i+1) == inp.charAt(i)))
+			{
+				ccount++;
+				i++;
+			}
+			
+			result.append(ccount);			
+		}
+		
+		return result.toString();
+	}
+
+	public void testStringPermutations() {
+		String testString = "rohit";
+		System.out.println(testString);
+		permutations(testString);
+	}
+	
 	public void testFindUnique() {
 		// Input: 5,4,3,2
 		// Output: 1
 		int[] arr = { 5, 4, 3, 2 };
 		int maxNumberInArray = 5;
 		this.findUniqueIntInArray(arr, maxNumberInArray);
-
 	}
+	
+	@Test
+	public void testRunLengthEncoding(){
+		String output = this.runLengthEncoding("aaaammaazzzzoonnn");
+		assertEquals("a4m2a2z4o2n3", output);
+	}
+	
+	
 
 }
