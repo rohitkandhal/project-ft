@@ -53,7 +53,7 @@ public class LinkedListMan {
 	/*
 	 * Determines a loop or cycle in a linked list.
 	 */
-	public boolean determineLoopInList(ListNode head) {
+	public boolean hasLoop(ListNode head) {
 		boolean hasLoop = false;
 		if (head != null) {
 			ListNode slow = head;
@@ -148,6 +148,48 @@ public class LinkedListMan {
 		return result;
 	}
 
+	public ListNode getIntersection(ListNode l1, ListNode l2)
+	{
+		ListNode newList = null;
+		
+		ListNode curr = null;
+		while(l1 != null && l2 != null)
+		{
+			if(l1.data == l2.data)
+			{
+				ListNode newNode = new ListNode(l1.data);
+				
+				if(newList == null)
+				{
+					newList = newNode;
+					curr = newList;
+				}
+				else
+				{
+					curr.next = newNode;
+					curr = curr.next;
+				}
+				l1 = l1.next;
+				l2 = l2.next;
+			}
+			else
+			{
+				if(l1.data < l2.data)
+				{
+					l1 = l1.next;
+				}
+				else
+				{
+					l2 = l2.next;
+				}
+			}
+		}
+		
+		return newList;
+		
+	}
+	
+	
 	/*
 	 * Prints a linked list.
 	 */
@@ -193,4 +235,19 @@ public class LinkedListMan {
 
 		printLinkedList(l1);
 	}
+
+	@Test
+	public void testListIntersection()
+	{
+		ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3,
+				new ListNode(4, new ListNode(5)))));
+		
+		ListNode l2 = new ListNode(3, new ListNode(4, new ListNode(10,
+				new ListNode(11))));
+		
+		ListNode l3 = getIntersection(l1, l2);
+		
+		printLinkedList(l3);
+	}
+	
 }
