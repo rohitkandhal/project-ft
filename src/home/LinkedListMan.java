@@ -4,9 +4,6 @@ import org.junit.Test;
 
 public class LinkedListMan {
 
-	/*
-	 * Singly Linked List definition
-	 */
 	public class ListNode {
 		int data;
 		ListNode next;
@@ -129,7 +126,7 @@ public class LinkedListMan {
 		// Second.next = first
 		// First.next = Third.next
 		while (true) {
-			
+
 			third = second.next;
 
 			second.next = first;
@@ -148,48 +145,36 @@ public class LinkedListMan {
 		return result;
 	}
 
-	public ListNode getIntersection(ListNode l1, ListNode l2)
-	{
+	public ListNode getIntersection(ListNode l1, ListNode l2) {
 		ListNode newList = null;
-		
+
 		ListNode curr = null;
-		while(l1 != null && l2 != null)
-		{
-			if(l1.data == l2.data)
-			{
+		while (l1 != null && l2 != null) {
+			if (l1.data == l2.data) {
 				ListNode newNode = new ListNode(l1.data);
-				
-				if(newList == null)
-				{
+
+				if (newList == null) {
 					newList = newNode;
 					curr = newList;
-				}
-				else
-				{
+				} else {
 					curr.next = newNode;
 					curr = curr.next;
 				}
 				l1 = l1.next;
 				l2 = l2.next;
-			}
-			else
-			{
-				if(l1.data < l2.data)
-				{
+			} else {
+				if (l1.data < l2.data) {
 					l1 = l1.next;
-				}
-				else
-				{
+				} else {
 					l2 = l2.next;
 				}
 			}
 		}
-		
+
 		return newList;
-		
+
 	}
-	
-	
+
 	/*
 	 * Prints a linked list.
 	 */
@@ -237,17 +222,16 @@ public class LinkedListMan {
 	}
 
 	@Test
-	public void testListIntersection()
-	{
+	public void testListIntersection() {
 		ListNode l1 = new ListNode(1, new ListNode(2, new ListNode(3,
 				new ListNode(4, new ListNode(5)))));
-		
+
 		ListNode l2 = new ListNode(3, new ListNode(4, new ListNode(10,
 				new ListNode(11))));
-		
+
 		ListNode l3 = getIntersection(l1, l2);
-		
+
 		printLinkedList(l3);
 	}
-	
+
 }
